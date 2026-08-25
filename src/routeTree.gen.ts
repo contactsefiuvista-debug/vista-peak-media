@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as ProcessRouteImport } from './routes/process'
 import { Route as ServicesRouteImport } from './routes/services'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +30,11 @@ const PortfolioRoute = PortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProcessRoute = ProcessRouteImport.update({
+  id: '/process',
+  path: '/process',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/portfolio': typeof PortfolioRoute
+  '/process': typeof ProcessRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/portfolio': typeof PortfolioRoute
+  '/process': typeof ProcessRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,22 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/portfolio': typeof PortfolioRoute
+  '/process': typeof ProcessRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/portfolio' | '/services'
+  fullPaths: '/' | '/about' | '/portfolio' | '/process' | '/services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/portfolio' | '/services'
-  id: '__root__' | '/' | '/about' | '/portfolio' | '/services'
+  to: '/' | '/about' | '/portfolio' | '/process' | '/services'
+  id: '__root__' | '/' | '/about' | '/portfolio' | '/process' | '/services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   PortfolioRoute: typeof PortfolioRoute
+  ProcessRoute: typeof ProcessRoute
   ServicesRoute: typeof ServicesRoute
 }
 
@@ -92,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/process': {
+      id: '/process'
+      path: '/process'
+      fullPath: '/process'
+      preLoaderRoute: typeof ProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -106,6 +123,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   PortfolioRoute: PortfolioRoute,
+  ProcessRoute: ProcessRoute,
   ServicesRoute: ServicesRoute,
 }
 export const routeTree = rootRouteImport
