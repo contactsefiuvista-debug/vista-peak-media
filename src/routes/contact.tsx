@@ -8,9 +8,8 @@ import { PageHero, FinalCTA } from "../components/sections";
 import { CONTACT_EMAIL } from "../components/site-footer";
 
 export const Route = createFileRoute("/contact")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    service: typeof search.service === "string" ? search.service : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { service?: string } =>
+    typeof search["service"] === "string" ? { service: search["service"] } : {},
   head: () => ({
     meta: [
       { title: "Contact — Let's Reach the Summit Together | Vista Peak Media" },
@@ -91,12 +90,12 @@ function Contact() {
               <div>
                 <label htmlFor="name" className="text-sm font-medium">Full Name</label>
                 <input id="name" name="name" maxLength={100} className={fieldClass} placeholder="Jane Doe" />
-                {errors.name ? <p className="mt-1 text-xs text-destructive">{errors.name}</p> : null}
+                {errors["name"] ? <p className="mt-1 text-xs text-destructive">{errors["name"]}</p> : null}
               </div>
               <div>
                 <label htmlFor="email" className="text-sm font-medium">Email Address</label>
                 <input id="email" name="email" type="email" maxLength={255} className={fieldClass} placeholder="jane@brand.com" />
-                {errors.email ? <p className="mt-1 text-xs text-destructive">{errors.email}</p> : null}
+                {errors["email"] ? <p className="mt-1 text-xs text-destructive">{errors["email"]}</p> : null}
               </div>
               <div>
                 <label htmlFor="company" className="text-sm font-medium">Company / Brand Name</label>
@@ -111,7 +110,7 @@ function Contact() {
                     <option key={s} value={s}>{s}</option>
                   ))}
                 </select>
-                {errors.service ? <p className="mt-1 text-xs text-destructive">{errors.service}</p> : null}
+                {errors["service"] ? <p className="mt-1 text-xs text-destructive">{errors["service"]}</p> : null}
               </div>
               <div className="sm:col-span-2">
                 <label htmlFor="budget" className="text-sm font-medium">Budget Range</label>
@@ -121,7 +120,7 @@ function Contact() {
                     <option key={b} value={b}>{b}</option>
                   ))}
                 </select>
-                {errors.budget ? <p className="mt-1 text-xs text-destructive">{errors.budget}</p> : null}
+                {errors["budget"] ? <p className="mt-1 text-xs text-destructive">{errors["budget"]}</p> : null}
               </div>
               <div className="sm:col-span-2">
                 <label htmlFor="message" className="text-sm font-medium">Project Details</label>
@@ -133,7 +132,7 @@ function Contact() {
                   className={fieldClass}
                   placeholder="Where is your brand today, and what does the peak look like?"
                 />
-                {errors.message ? <p className="mt-1 text-xs text-destructive">{errors.message}</p> : null}
+                {errors["message"] ? <p className="mt-1 text-xs text-destructive">{errors["message"]}</p> : null}
               </div>
             </div>
             <button
