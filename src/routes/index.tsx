@@ -129,7 +129,7 @@ function Home() {
       <section className="aurora peak-gradient relative flex min-h-screen items-center">
         <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-14 px-6 pt-32 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
-            <span className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+            <span className="inline-flex border border-surface-foreground/15 bg-surface/50 backdrop-blur-md items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-gold">
               <Star className="size-3.5" /> Full-Scale Digital Solutions
             </span>
             <h1 className="mt-7 font-display text-5xl font-bold leading-[1.03] text-surface-foreground sm:text-6xl lg:text-7xl">
@@ -148,7 +148,7 @@ function Home() {
               </Link>
               <a
                 href="#services"
-                className="glass rounded-full px-8 py-4 text-sm font-semibold text-surface-foreground transition-transform hover:scale-[1.04]"
+                className="rounded-full border border-surface-foreground/20 bg-surface/40 px-8 py-4 text-sm font-semibold text-surface-foreground backdrop-blur-md transition-transform hover:scale-[1.04]"
               >
                 Explore Our Services
               </a>
@@ -156,7 +156,7 @@ function Home() {
           </div>
 
           <div className="relative hidden lg:block">
-            <div className="glass rounded-[2rem] p-8">
+            <div className="rounded-[2rem] border border-surface-foreground/12 bg-surface/45 p-8 backdrop-blur-xl">
               <p className="font-serif text-2xl italic text-surface-foreground/85">
                 "Full-Scale Digital Solutions. One Creative Partner."
               </p>
