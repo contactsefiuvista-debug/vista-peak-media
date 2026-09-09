@@ -12,6 +12,8 @@ const NAV = [
   { to: "/blog", label: "Insights" },
 ] as const;
 
+const VIDEO_PORTFOLIO_URL = "https://sites.google.com/view/vistapeakmedia/ai-video/video-ads";
+
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -65,6 +67,14 @@ export function SiteHeader() {
               {n.label}
             </Link>
           ))}
+          <a
+            href={VIDEO_PORTFOLIO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Video Portfolio
+          </a>
         </nav>
 
         <div className="flex items-center gap-2">
@@ -103,6 +113,15 @@ export function SiteHeader() {
               {n.label}
             </Link>
           ))}
+          <a
+            href={VIDEO_PORTFOLIO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+          >
+            Video Portfolio
+          </a>
           <Link
             to="/contact"
             onClick={() => setOpen(false)}
